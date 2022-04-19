@@ -58,10 +58,14 @@ packer.startup(function()
   -- Filetree in the sidepanel
   use('kyazdani42/nvim-tree.lua')
 
-  -- Git diff signs
+  -- Git plugins
   use({
     'lewis6991/gitsigns.nvim',
     tag = 'release'
+  })
+  use({
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim'
   })
 
   -- Delete the buffer while keeping the window layout

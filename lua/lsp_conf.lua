@@ -39,7 +39,7 @@ end
 local servers = {
   'cssls',
   'eslint',
-  -- "rust_analyzer",
+  "rust_analyzer",
   -- "solargraph",
   -- "sorbet",
   'tsserver'
