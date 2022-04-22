@@ -70,7 +70,25 @@ require('lsp_signature').setup({
 })
 
 require('nvim-treesitter.configs').setup({
-  ensure_installed = 'maintained',
+  ensure_installed = {
+    'css',
+    'dockerfile',
+    'fish',
+    'html',
+    'javascript',
+    'jsdoc',
+    'json',
+    'lua',
+    'php',
+    'rust',
+    'ruby',
+    'scss',
+    'toml',
+    'tsx',
+    'typescript',
+    'vim',
+    'yaml'
+  },
   highlight = {
     enable = true
   }
