@@ -2,6 +2,7 @@ require('plugins')
 require('keymap')
 require('lsp_conf')
 require('completion')
+require('utils')
 
 local map = vim.api.nvim_set_keymap
 
@@ -26,20 +27,26 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.backspace = { 'indent', 'eol', 'start' }
 vim.opt.expandtab = true
+local autocommands = {
+  formatting = {
+    { 'FileType', 'go', 'setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4 nolist' }
+  }
+}
+nvim_create_augroups(autocommands)
 
+-- Theming
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
-
--- vim.g.hidden = true -- Used for toggleterm
--- vim.api.nvim_set_var('onedark_style', 'warmer') -- 'darker', 'cool', 'deep', 'warm', 'warmer'
 require('onedark').setup {
-  style = 'darker'
+  style = 'darker' -- available styles: 'darker', 'cool', 'deep', 'warm', 'warmer'
 }
 vim.cmd([[colorscheme onedark]])
 
+vim.g.hidden = true -- Used for toggleterm
+vim.o.hidden = true
+
 vim.o.completeopt = 'menu,menuone,noselect'
 
--- vim.o.hidden = true
 vim.o.signcolumn = 'yes'
 
 require('hardline').setup({})
@@ -65,15 +72,12 @@ telescope.setup({
 })
 telescope.load_extension('fzf')
 
-require('lsp_signature').setup({
-  hint_prefix = ''
-})
-
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     'css',
     'dockerfile',
     'fish',
+    'go',
     'html',
     'javascript',
     'jsdoc',
@@ -96,3 +100,7 @@ require('nvim-treesitter.configs').setup({
 
 map('n', '<leader><tab>', "<cmd>:NvimTreeToggle<CR>", {})
 require('nvim-tree').setup({})
+
+require('toggleterm').setup({
+  open_mapping = [[<c-t>]]
+})
