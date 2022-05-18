@@ -20,6 +20,8 @@ Performs `PackerClean` and then `PackerUpdate`
 --]]
 local packer = require('packer')
 packer.startup(function()
+  use 'wbthomason/packer.nvim'
+
   -- Utility functions used by other plugins (telescope and gitsigns)
   use('nvim-lua/plenary.nvim')
 
@@ -54,6 +56,9 @@ packer.startup(function()
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make'
   })
+
+  -- Terminal
+  use({'akinsho/toggleterm.nvim', tag = 'v1.*'})
 
   -- Filetree in the sidepanel
   use('kyazdani42/nvim-tree.lua')
