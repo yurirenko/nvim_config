@@ -98,8 +98,6 @@ require('nvim-treesitter.configs').setup({
   }
 })
 
-map('n', '<leader><tab>', "<cmd>:NvimTreeToggle<CR>", {})
-require('nvim-tree').setup({})
 
 require('toggleterm').setup({
   open_mapping = [[<c-t>]]
