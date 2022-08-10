@@ -43,10 +43,11 @@ local servers = {
   'cssls',
   'gopls',
   'eslint',
-  "rust_analyzer",
+  'rust_analyzer',
   -- "solargraph",
   -- "sorbet",
-  'tsserver'
+  'tsserver',
+  'zls'
 }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, lsp in ipairs(servers) do

@@ -104,3 +104,5 @@ require('nvim-tree').setup({})
 require('toggleterm').setup({
   open_mapping = [[<c-t>]]
 })
+
+require('marks').setup()

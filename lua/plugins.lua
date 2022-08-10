@@ -75,4 +75,7 @@ packer.startup(function()
 
   -- Delete the buffer while keeping the window layout
   use('famiu/bufdelete.nvim')
+
+  -- Better marks
+  use('chentoast/marks.nvim')
 end)
